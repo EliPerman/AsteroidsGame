@@ -41,12 +41,13 @@ class Spaceship extends Floater{
       float dRadians = (float)(myPointDirection*(Math.PI/180));
       rotate(dRadians);
       if (wIsPressed == true){
-      fill(255, 165, 0);
-      stroke(255, 255, 0);
-      triangle(0, 10, 0, -10, -25, 0);
-      fill(0, 0, 255);
-      stroke(255, 0, 0);
-      triangle(0, 10, 0, -10, -20, 0);
+        float f = (float)(0.8 + Math.random()*0.4);
+        fill(255, 165, 0);
+        stroke(255, 255, 0);
+        triangle(0, 10, 0, -10, -25*f, 0);
+        fill(255, 0, 255);
+        stroke(255, 0, 0);
+        triangle(0, 10, 0, -10, -20*f, 0);
       }
       fill(myColor);   
       stroke(myColor); 
