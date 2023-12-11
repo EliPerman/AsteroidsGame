@@ -35,6 +35,9 @@ class Spaceship extends Floater{
     public double getYspeed(){
       return myYspeed;
     }
+    public double getPointDirection(){
+      return myPointDirection;
+    }
     public void show ()  
     {         
       translate((float)myCenterX, (float)myCenterY);
@@ -45,9 +48,23 @@ class Spaceship extends Floater{
         fill(255, 165, 0);
         stroke(255, 255, 0);
         triangle(0, 10, 0, -10, -25*f, 0);
-        fill(255, 0, 255);
+        fill(255, 0, 100);
         stroke(255, 0, 0);
-        triangle(0, 10, 0, -10, -20*f, 0);
+        triangle(0, 10, 0, -10, -15*f, 0);
+      }
+      if (gIsPressed == true && t % 5 == 0){
+        int n = (int)(Math.random()*2)*2+5;
+        fill(255, 255, 100);
+        stroke(255, 255, 100);
+        beginShape();
+        vertex(0, 0);
+        for (int i = 0; i < n; i++){
+          if (i % 2 == 0)
+            vertex((float)(15*Math.cos(-PI/12+PI*i/(6*(n-1)))*(1 + 0.3*Math.random())), (float)(15*Math.sin(-PI/12+PI*i/(6*(n-1)))*(1 + 0.3*Math.random())));
+          else
+            vertex((float)(15*Math.cos(-PI/12+PI*i/(6*(n-1)))*(0.7 + 0.3*Math.random())), (float)(15*Math.sin(-PI/12+PI*i/(6*(n-1)))*(0.7 + 0.3*Math.random())));
+        }
+        endShape(CLOSE);
       }
       fill(myColor);   
       stroke(myColor); 
